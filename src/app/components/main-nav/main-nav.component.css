@@ -1,0 +1,47 @@
+.sidenav-container {
+  height: 100%;
+  z-index: 99999;
+}
+mat-sidenav-content {
+  background-color: #fff;
+}
+.sidenav {
+  width: 200px;
+  z-index: 99999;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+
+  top: 0;
+  z-index: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.li {
+  display: inline-block;
+  float: left;
+}
+.li a {
+  position: relative;
+display: block;
+padding: 23px 27px;
+color: #fff;
+background: transparent;
+font-size: 14px;
+line-height: 24px;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+transition: .3s;
+}
+@media (min-width: 960px) {
+  .sidenav {
+    display: none;
+  }
+}

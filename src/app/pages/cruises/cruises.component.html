@@ -1,0 +1,193 @@
+<!-- Page-->
+   <div class="page text-center">
+     <!-- Page Header-->
+     <div>
+       <header class="page-header">
+         <!-- RD Navbar-->
+         <div class="rd-navbar-wrap" style="height: 110px;">
+           <app-main-nav>
+
+           </app-main-nav>
+
+
+         </div>
+       </header>
+       <!-- Swiper-->
+       <div class="swiper-slide-wrapper">
+         <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade" class="swiper-container swiper-slider">
+           <div class="swiper-wrapper">
+             <div data-slide-bg="assets/images/background-06.jpg" class="swiper-slide"></div>
+             <div data-slide-bg="assets/images/background-08.jpg" class="swiper-slide"></div>
+           </div>
+         </div>
+         <div class="swiper-onSlider">
+           <slideshow [height]="height"
+           [minHeight]="'525px'"
+           [autoPlay]="true"
+           [showArrows]="false"
+           [imageUrls]="imageSources"
+           [lazyLoad]="imageSources?.length > 1"
+           [autoPlayWaitForLazyLoad]="true">
+           <h1>Test</h1>
+           </slideshow>
+
+           <div id="home-search" class="shell shell-wide section-70 section-xl-top-200 section-xl-bottom-220">
+             <div class="range range-xs-center">
+               <div class="cell-xl-6 cell-lg-9 cell-md-11">
+                 <div data-type="horizontal" class="responsive-tabs text-md-left nav-custom-dark  fadeInUpSmall">
+
+       <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+         <div>
+            <h1 id="page-title">Search for your next cruise</h1>
+            <form method="post" action="#" class="small">
+                 <div class="range">
+                   <div class="range offset-top-15">
+                     <div class="cell-xs">
+                       <div class="form-group ">
+                         <label class="form-group-label">Going to</label>
+                         <!--Select 2-->
+                         <select name="destination" id="cruise-destination-hp-cruise"  class="form-control select-filter" autocomplete="off" data-gcw-storeable-name="gcw-cruise-destination">
+                           <option value="">Select destination</option>
+                           <optgroup label="Most Popular ---">
+                             <option value="caribbean">Caribbean</option>
+                             <option value="cuba">Cuba</option>
+                             <option value="bahamas">Bahamas</option>
+                             <option value="mexico">Mexico</option>
+                             <option value="alaska">Alaska</option>
+                             <option value="europe">Europe</option>
+                             <option value="bermuda">Bermuda</option>
+                             <option value="hawaii">Hawaii</option>
+                             <option value="canada-new-england">Canada / New England</option>
+                           </optgroup>
+                             <optgroup label="Other Destinations">
+                               <option value="arctic-antarctic">Arctic / Antarctic</option>
+                             <option value="middle-east">Middle East</option>
+                             <option value="africa">Africa</option>
+                             <option value="panama-canal">Panama Canal</option>
+                             <option value="asia">Asia</option>
+                             <option value="pacific-coastal">Pacific Coastal</option>
+                             <option value="australia-new-zealand">Australia / New Zealand</option>
+                             <option value="central-america">Central America</option>
+                             <option value="galapagos">Galapagos</option>
+                             <option value="getaway-at-sea">Getaway at Sea</option>
+                             <option value="transatlantic">Transatlantic</option>
+                             <option value="world-cruise">World</option>
+                             <option value="south-america">South America</option>
+                             <option value="south-pacific">South Pacific</option>
+                             <option value="transpacific">Transpacific</option>
+                           </optgroup>
+                         </select>
+                       </div>
+                     </div>
+
+                     <div class="cell-xs offset-top-10 offset-md-top-0">
+                       <div class="form-group">
+                         <label class="form-group-label">Departure Month</label>
+                         <!--Select 2-->
+                         <select data-minimum-results-for-search="Infinity" name="earliest-departure-date" id="cruise-departure-month-hp-cruise" class="form-control select-filter cruise-earliest-departure-date gcw-storeable" autocomplete="off" data-gcw-storeable-name="gcw-cruise-earliest-departure-date" data-gcw-date-value-format="YYYY-MM-DD">
+                              <option value="">Select date</option>
+                              <option value="2019-01-01">January 2019</option>
+                              <option value="2019-02-01">February 2019</option>
+                              <option value="2019-03-01">March 2019</option>
+                              <option value="2019-04-01">April 2019</option>
+                              <option value="2019-05-01">May 2019</option>
+                              <option value="2019-06-01">June 2019</option>
+                              <option value="2019-07-01">July 2019</option>
+                              <option value="2019-08-01">August 2019</option>
+                              <option value="2019-09-01">September 2019</option>
+                              <option value="2019-10-01">October 2019</option>
+                              <option value="2019-11-01">November 2019</option>
+                              <option value="2019-12-01">December 2019</option>
+                              <option value="2020-01-01">January 2020</option>
+                              <option value="2020-02-01">February 2020</option>
+                              <option value="2020-03-01">March 2020</option>
+                              <option value="2020-04-01">April 2020</option>
+                              <option value="2020-05-01">May 2020</option>
+                              <option value="2020-06-01">June 2020</option>
+                              <option value="2020-07-01">July 2020</option>
+                              <option value="2020-08-01">August 2020</option>
+                              <option value="2020-09-01">September 2020</option>
+                              <option value="2020-10-01">October 2020</option>
+                              <option value="2020-11-01">November 2020</option>
+                         </select>
+                       </div>
+                     </div>
+
+                     <div class="cell-xs offset-top-10 offset-md-top-0">
+                       <div class="form-group">
+                         <label class="form-group-label">Which cruise line?</label>
+                         <!--Select 2-->
+                         <select data-minimum-results-for-search="Infinity" name="earliest-departure-date" id="cruise-departure-month-hp-cruise" class="form-control select-filter cruise-earliest-departure-date gcw-storeable" autocomplete="off" data-gcw-storeable-name="gcw-cruise-earliest-departure-date" data-gcw-date-value-format="YYYY-MM-DD">
+                             <option label="All Cruise Lines" value="ALL">All Cruise Lines</option>
+                             <option label="Azamara Cruises" value="325">Azamara Cruises</option>
+                             <option label="Carnival Cruise Lines" value="1">Carnival Cruise Lines</option>
+                             <option label="Celebrity Cruises" value="11">Celebrity Cruises</option>
+                             <option label="Costa Cruises" value="14">Costa Cruises</option>
+                             <option label="Crystal Cruises" value="17">Crystal Cruises</option>
+                             <option label="Cunard" value="18">Cunard</option>
+                             <option label="Disney Cruise Line" value="20">Disney Cruise Line</option>
+                             <option label="Holland America Line" value="24">Holland America Line</option>
+                             <option label="MSC Cruises" value="71">MSC Cruises</option>
+                             <option label="Norwegian Cruise Line" value="34">Norwegian Cruise Line</option>
+                             <option label="Oceania Cruises" value="67">Oceania Cruises</option>
+                             <option label="Princess Cruises" value="40">Princess Cruises</option>
+                             <option label="Regent Seven Seas Cruises" value="41">Regent Seven Seas Cruises</option>
+                             <option label="Royal Caribbean" value="44">Royal Caribbean</option>
+                             <option label="Silversea Cruises" value="50">Silversea Cruises</option>
+                             <option label="The Yachts of Seabourn" value="48">The Yachts of Seabourn</option>
+                             <option label="Uniworld River Cruises" value="66">Uniworld River Cruises</option>
+                             <option label="Viking River Cruises" value="78">Viking River Cruises</option>
+                             <option label="Windstar Cruises" value="64">Windstar Cruises</option>
+                         </select>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="range offset-top-15">
+                     <div class="cell-xs offset-top-10 offset-md-top-0">
+                       <div class="form-group">
+                         <label class="form-group-label">Cruise length</label>
+                         <!--Select 2-->
+                         <select data-minimum-results-for-search="Infinity" name="earliest-departure-date" id="cruise-departure-month-hp-cruise" class="form-control select-filter cruise-earliest-departure-date gcw-storeable" autocomplete="off" data-gcw-storeable-name="gcw-cruise-earliest-departure-date" data-gcw-date-value-format="YYYY-MM-DD">
+                           <option label="Cruise length" value="" disabled="">Cruise length</option>
+                           <option label="All" value="ALL">All</option>
+                           <option label="1-2 Nights" value="1">1-2 Nights</option>
+                           <option label="3-5 Nights" value="2">3-5 Nights</option>
+                           <option label="6-8 Nights" value="3">6-8 Nights</option>
+                           <option label="9-11 Nights" value="4">9-11 Nights</option>
+                           <option label="12+ Nights" value="5">12+ Nights</option>
+                         </select>
+                       </div>
+                     </div>
+                     <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
+                       <div class="range">
+                         <div class="cell-xs-6">
+                           <div class="form-group">
+                             <label class="form-group-label">Adults (16+)</label>
+                             <input type="number" min="0" value="2" class="form-control">
+                           </div>
+                         </div>
+                         <div class="cell-xs-6 offset-top-15 offset-xs-top-0">
+                           <div class="form-group">
+                             <label class="form-group-label">Children</label>
+                             <input type="number" min="0" value="0" class="form-control">
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
+                       <button class="btn btn-primary btn-sm btn-naira btn-naira-up"><span class="icon fa-search"></span><span>Search Cars</span></button>
+                     </div>
+                   </div>
+                 </div>
+               </form>
+         </div>
+
+         </div>
+         </div>
+         </div>
+         </div>
+
+
+       </div>
+
+       </div>

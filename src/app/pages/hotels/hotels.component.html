@@ -1,0 +1,488 @@
+
+<div  *ngIf="!IsSearch" class="page text-center">
+  <div>
+    <header class="page-header">
+      <div class="rd-navbar-wrap" style="height: 110px;">
+        <app-main-nav>
+
+        </app-main-nav>
+
+
+      </div>
+    </header>
+   >
+
+
+      <div class="swiper-slide-wrapper">
+        <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade" class="swiper-container swiper-slider">
+          <div class="swiper-wrapper">
+            <div data-slide-bg="assets/images/background-06.jpg" class="swiper-slide"></div>
+            <div data-slide-bg="assets/images/background-08.jpg" class="swiper-slide"></div>
+          </div>
+        </div>
+        <div  *ngIf="!IsSearch" class="swiper-onSlider">
+          <slideshow
+          [minHeight]="'525px'"
+          [autoPlay]="true"
+          [showArrows]="false"
+          [imageUrls]="imageSources"
+          [lazyLoad]="imageSources?.length > 1"
+          [autoPlayWaitForLazyLoad]="true">
+          <h1>Test</h1>
+          </slideshow>
+          <div id="home-search"  class="shell shell-wide section-70 section-xl-top-200 section-xl-bottom-220">
+            <div class="range range-xs-center">
+              <div  class="cell-xl-6 cell-lg-9 cell-md-11">
+                <div   data-type="horizontal" class="responsive-tabs text-md-left nav-custom-dark  fadeInUpSmall">
+
+      <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+        <div>
+          <h1 id="page-title">Search Hotels</h1>
+          <form method="post" action="#" class="small">
+            <div class="range">
+              <div class="cell-md-8">
+              </div>
+              <div class="range offset-top-15">
+                <div class="cell-xs">
+                  <div class="form-group">
+                    <label class="form-group-label">Destination</label>
+                    <select [(ngModel)]="SelectionCity"  name="SelectionCity"  data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                      <option   *ngFor="let c of countries;" [value]="c.code">{{c.name}}</option>
+
+                     </select>
+
+                  </div>
+                </div>
+                <div class="cell-xs offset-top-15 offset-xs-top-0">
+                  <div class="form-group">
+                    <label class="form-group-label">Rooms</label>
+                    <input [(ngModel)]="RoomQ" name='RoomQ' type="number" min="0" value="1" class="form-control">
+                  </div>
+                </div>
+                <div class="cell-md-1-5 offset-top-10 offset-md-top-0">
+                  <div class="form-group">
+                    <label class="form-group-label">Star rating</label>
+
+
+                    <select [(ngModel)]="Rating" (change)="changeRating()" name="Rating" data-minimum-results-for-search="Infinity" class="form-control select-filter">
+
+                      <option   *ngFor="let c of RatingArr;" [value]=c>{{c}}</option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="range offset-top-15">
+                <div class="cell-xs">
+                  <div class="form-group">
+                    <label class="form-group-label">Arrival</label>
+                    <input [(ngModel)]="CheckInData"  type="date" data-date-format="DD MMMM YYYY" name="departure" class="form-control">
+                  </div>
+                </div>
+                <div class="cell-xs offset-top-15 offset-xs-top-0">
+                  <div class="form-group">
+                    <label class="form-group-label">Leave</label>
+                    <input [(ngModel)]="CheckOutData"  type="date" data-time-picker="date" data-constraints="@Required" name="return" class="form-control">
+                  </div>
+                </div>
+                <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
+                  <div class="range">
+                    <div class="cell-xs-6">
+                      <div class="form-group">
+                        <label class="form-group-label">Adults (16+)</label>
+                        <input [(ngModel)]="Adults" name='Adults' type="number" min="0" [value]="1" class="form-control">
+                      </div>
+                    </div>
+                    <div class="cell-xs-6 offset-top-15 offset-xs-top-0">
+                      <div class="form-group">
+                        <label class="form-group-label">Children</label>
+                        <input type="number" min="0" value="0" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
+                  <button (click)="SubmitData()" [disabled]="whenSerach" class="btn btn-primary btn-sm btn-naira btn-naira-up"><span class="icon fa-search"></span><span>Search Hotels</span></button>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+          </form>
+        </div>
+
+        </div>
+
+                </div>
+
+
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div  *ngIf="IsSearch" class="page text-center">
+  <div>
+    <header class="page-header">
+      <div class="rd-navbar-wrap" style="height: 110px;">
+        <app-main-nav>
+
+        </app-main-nav>
+
+
+      </div>
+    </header>
+    <mat-spinner *ngIf="isLoading" [diameter]="70"></mat-spinner>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container" >
+      <div class="row content">
+
+        <!-- <div class="col-sm-1" ></div> -->
+        <div class="col-sm-3 fillter"  *ngIf="!isLoading">
+         <h5>Property Class</h5>
+         <hr>
+         <hr>
+         <hr>
+         <hr>
+
+         <i *ngFor='let loop of counter(Rating) ;let i= index'>
+            <span class="fa fa-star checked" (click)="NewRating(i+1)"></span>
+        </i>
+        <i *ngFor='let loop3 of counter(nextrate) ;let i= index'>
+            <span class="fa fa-star "   (click)="NewRating2(i+1)"></span>
+        </i>
+
+        </div>
+
+
+
+        <div class="col-sm-9 text">
+
+          <div *ngFor="let result of ResuldDatat">
+
+            <div *ngIf="result.hotel.rating == Rating">
+
+            <div  class="clear"></div>
+            <div class="nat">
+                <i *ngFor="let media of result.hotel.media" >
+                    <img class="im" [src]=media.uri />
+                </i>
+
+                <small>
+                    <h6  *ngIf="result.available == true">
+                        Available</h6>
+                      <h6  *ngIf="result.available == false">
+                        Not Available
+                      </h6>
+                </small>
+                <h6> {{ result.hotel.name }}</h6>
+                <p *ngIf="result.hotel.description">
+                  {{ result.hotel.description.text }}
+                </p>
+            </div>
+
+          </div>
+
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <div class="result container hoteleData" >
+      <div class="row">
+       <div class="col-md-3">
+         fillter
+       </div>
+       <div class="col-md-9">
+
+        <div *ngFor="let result of ResuldDatat" >
+            <div  class="HDataBody">
+                <h5 style="color: crimson;">Hotel Name: {{ result.hotel.name }}</h5>
+              <h6 class='available' *ngIf="result.available == true">
+                  Available</h6>
+                <h6 class='notavailable' *ngIf="result.available == false">
+                  Not Available
+                </h6>
+                <h6 *ngFor="let offer of result.offers">
+                  This is Hotel Offer gusts  {{  offer.guests.adults  }}
+                </h6>
+                <span class="heading">Hotel Rating </span>
+                <i *ngFor='let loop of counter(Rating) ;let i= index'>
+                    <span class="fa fa-star checked"></span>
+                </i>
+                <i *ngFor='let loop3 of counter(nextrate) ;let i= index'>
+                    <span class="fa fa-star "></span>
+                </i>
+                <div *ngFor="let media of result.hotel.media" class='media'>
+                 <img  [src]=media.uri />
+                </div>
+
+
+            </div>
+          </div>
+       </div>
+    </div>
+  </div> -->
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="page text-center">
+
+   <div  class="page text-center nuxt">
+ Serch Hotel
+     <div>
+       <header class="page-header">
+         <div class="rd-navbar-wrap" style="height: 110px;">
+           <app-main-nav>
+
+           </app-main-nav>
+
+
+         </div>
+       </header>
+       <div class="swiper-slide-wrapper">
+         <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade" class="swiper-container swiper-slider">
+
+        <div *ngIf="!IsSearch" >
+        <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade" class="swiper-container swiper-slider">
+           <div class="swiper-wrapper">
+             <div data-slide-bg="assets/images/background-06.jpg" class="swiper-slide"></div>
+             <div data-slide-bg="assets/images/background-08.jpg" class="swiper-slide"></div>
+           </div>
+         </div>
+         <div class="swiper-onSlider">
+           <slideshow
+
+           [minHeight]="'525px'"
+           [autoPlay]="true"
+           [showArrows]="false"
+           [imageUrls]="imageSources"
+           [lazyLoad]="imageSources?.length > 1"
+           [autoPlayWaitForLazyLoad]="true">
+           <h1>Test</h1>
+           </slideshow>
+
+           <div id="home-search" class="shell shell-wide section-70 section-xl-top-200 section-xl-bottom-220">
+             <div class="range range-xs-center">
+               <div class="cell-xl-6 cell-lg-9 cell-md-11">
+                 <div data-type="horizontal" class="responsive-tabs text-md-left nav-custom-dark  fadeInUpSmall">
+
+       <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+         <div>
+           <h1 id="page-title">Search Hotels</h1>
+           <form method="post" action="#" class="small">
+             <div class="range">
+               <div class="cell-md-8">
+                 <div class="form-group radio-inline-wrapper">
+                   <label class="radio-inline">
+                     <input name="input-group-radio" value="radio-1" type="radio" checked>Work
+                   </label>
+                   <label class="radio-inline">
+                     <input name="input-group-radio" value="radio-2" type="radio">Vacation
+                   </label>
+                 </div>
+               </div>
+               <div class="range offset-top-15">
+                 <div class="cell-xs">
+                   <div class="form-group">
+                     <label class="form-group-label">Destination</label>
+
+                     <select data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                       <option>New York (JFK)</option>
+                       <option value="2">Demo Item 1-1</option>
+                       <option value="3">Demo Item 1-2</option>
+                       <option value="4">Demo Item 1-2</option>
+                       <option value="5">Demo Item 2-1</option>
+                       <option value="6">Demo Item 2-2</option>
+                       <option value="7">Demo Item 2-3</option>
+
+
+                     <select [(ngModel)]="SelectionCity" name="SelectionCity"  data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                      <option   *ngFor="let c of countries;" [value]="c.code">{{c.name}}</option>
+
+                     </select>
+
+                 <div class="cell-xs offset-top-15 offset-xs-top-0">
+                   <div class="form-group">
+                     <label class="form-group-label">Rooms</label>
+                     <input type="number" min="0" value="1" class="form-control">
+                   </div>
+                 </div>
+                 <div class="cell-md-1-5 offset-top-10 offset-md-top-0">
+                   <div class="form-group">
+                     <label class="form-group-label">Star rating</label>
+
+                     <select data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                       <option>5</option>
+                       <option value="2">5</option>
+                       <option value="3">4</option>
+                       <option value="4">3</option>
+                       <option value="5">2</option>
+                       <option value="6">1</option>
+
+                     <select [(ngModel)]="Rating" (change)="changeRating()" name="Rating" data-minimum-results-for-search="Infinity" class="form-control select-filter">
+
+                       <option   *ngFor="let c of RatingArr;" [value]=c>{{c}}</option>
+
+                     </select>
+
+               <div class="range offset-top-15">
+                 <div class="cell-xs">
+                   <div class="form-group">
+                     <label class="form-group-label">Arrival</label>
+                     <input type="text" data-time-picker="date" data-constraints="@Required" name="departure" class="form-control">
+                   </div>
+                 </div>
+                 <div class="cell-xs offset-top-15 offset-xs-top-0">
+                   <div class="form-group">
+                     <label class="form-group-label">Leave</label>
+                     <input type="text" data-time-picker="date" data-constraints="@Required" name="return" class="form-control">
+                   </div>
+                 </div>
+                 <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
+                   <div class="range">
+                     <div class="cell-xs-6">
+                       <div class="form-group">
+                         <label class="form-group-label">Adults (16+)</label>
+
+                         <input type="number" min="0" value="2" class="form-control">
+
+                         <input [(ngModel)]="Adults" name='Adults' type="number" min="0" [value]="1" class="form-control">
+
+                       </div>
+                     </div>
+                     <div class="cell-xs-6 offset-top-15 offset-xs-top-0">
+                       <div class="form-group">
+                         <label class="form-group-label">Children</label>
+                         <input type="number" min="0" value="0" class="form-control">
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
+
+                   <button class="btn btn-primary btn-sm btn-naira btn-naira-up"><span class="icon fa-search"></span><span>Search Hotels</span></button>
+                   <button (click)="SubmitData()" class="btn btn-primary btn-sm btn-naira btn-naira-up"><span class="icon fa-search"></span><span>Search Hotels</span></button>
+                 </div>
+               </div>
+
+
+
+
+
+
+
+  <div  *ngIf="IsSearch">
+    <div *ngFor="let result of ResuldDatat" class="hoteleData">
+      <div  class="HDataBody">
+
+          <h5 style="color: crimson;">Hotel Name: {{ result.hotel.name }}</h5>
+
+        <h6 class='available' *ngIf="result.available == true">
+            Available</h6>
+          <h6 class='notavailable' *ngIf="result.available == false">
+            Not Available
+          </h6>
+
+          <h6 *ngFor="let offer of result.offers">
+            This is Hotel Offer gusts  {{  offer.guests.adults  }}
+          </h6>
+
+
+
+          <span class="heading">Hotel Rating </span>
+          <i *ngFor='let loop of counter(Rating) ;let i= index'>
+              <span class="fa fa-star checked"></span>
+          </i>
+          <i *ngFor='let loop3 of counter(nextrate) ;let i= index'>
+              <span class="fa fa-star "></span>
+          </i>
+
+          <div *ngFor="let media of result.hotel.media" class='media'>
+           <img  [src]=media.uri />
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+ -->

@@ -1,0 +1,20 @@
+#secondary-menu {
+float: right;
+height: 30px;
+width: 300px;
+padding-top: 10px;
+}
+#secondary-menu ul {
+  margin: 0px;
+  padding: 0px;
+}
+#secondary-menu ul li {
+  float: left;
+  display: inline;
+  padding: 0px 15px;
+  list-style-type: none;
+}
+#secondary-menu ul li a {
+  color: #7b1fa2;
+  font-weight: 600;
+}

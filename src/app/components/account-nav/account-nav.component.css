@@ -1,0 +1,79 @@
+
+.your-profile-menu {
+    padding: 12px 10px;
+    margin-bottom: 0;
+    text-align: left;
+    padding-bottom: 0px;
+}
+
+.your-profile-menu li a {
+    font-size: 11px;
+    padding: 12px 0;
+    color: #888da8;
+    display: block;
+    font-weight: 700
+}
+
+.card {
+    border: none
+}
+
+.card-header a {
+    color: #515365;
+    display: block
+}
+
+.card-header a:focus,
+.card-header a:hover {
+    color: #515365
+}
+
+.card-header i,
+.card-header svg {
+    float: right;
+    transition: all .3s ease;
+    margin-top: 4px
+}
+
+.card-header .collapsed i,
+.card-header .collapsed svg {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg)
+}
+
+.card-header .collapsed .event-status-icon i,
+.card-header .collapsed .event-status-icon svg {
+    -webkit-transform: rotate(0);
+    transform: rotate(0)
+}
+
+.ui-block {
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: left;
+    border: 1px solid #e6ecf5;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.ui-block .ui-block-title:last-child {
+    border-bottom: 0;
+}
+.mat-expansion-panel-header {
+  border-bottom: 1px solid #e6ecf5;
+}
+
+.ui-block-title {
+    padding: 23px 25px 18px;
+    line-height: 1;
+    font-weight: 700;
+    display: table;
+    width: 100%;
+    position: relative;
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    padding-left: 10px;
+    color: #515365;
+    font-family: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+}

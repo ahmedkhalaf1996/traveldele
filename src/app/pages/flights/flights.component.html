@@ -1,0 +1,166 @@
+<!-- Page-->
+   <div class="page text-center">
+     <!-- Page Header-->
+     <div>
+       <header class="page-header">
+         <!-- RD Navbar-->
+         <div class="rd-navbar-wrap" style="height: 110px;">
+           <app-main-nav>
+
+           </app-main-nav>
+
+
+         </div>
+       </header>
+       <!-- Swiper-->
+       <div class="swiper-slide-wrapper">
+         <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade" class="swiper-container swiper-slider">
+           <div class="swiper-wrapper">
+             <div data-slide-bg="assets/images/background-06.jpg" class="swiper-slide"></div>
+             <div data-slide-bg="assets/images/background-08.jpg" class="swiper-slide"></div>
+           </div>
+         </div>
+         <div class="swiper-onSlider">
+           <slideshow [height]="height"
+           [minHeight]="'525px'"
+           [autoPlay]="true"
+           [showArrows]="false"
+           [imageUrls]="imageSources"
+           [lazyLoad]="imageSources?.length > 1"
+           [autoPlayWaitForLazyLoad]="true">
+           <h1>Test</h1>
+           </slideshow>
+
+           <div id="home-search" class="shell shell-wide section-70 section-xl-top-200 section-xl-bottom-220">
+             <div class="range range-xs-center">
+               <div class="cell-xl-6 cell-lg-9 cell-md-11">
+                 <div data-type="horizontal" class="responsive-tabs text-md-left nav-custom-dark  fadeInUpSmall">
+
+       <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+         <div>
+            <h1 id="page-title">Search Flights</h1>
+           <form method="post" action="#" class="small">
+             <div class="range">
+               <div class="cell-md-8">
+                 <div class="form-group radio-inline-wrapper">
+                   <label class="radio-inline">
+                     <input name="input-group-radio" value="radio-1" type="radio" checked>Round Trip
+                   </label>
+                   <label class="radio-inline">
+                     <input name="input-group-radio" value="radio-2" type="radio">One Way
+                   </label>
+                   <label class="radio-inline">
+                     <input name="input-group-radio" value="radio-3" type="radio">Multi-city
+                   </label>
+                 </div>
+               </div>
+               <div class="offset-top-6 offset-md-top-0 cell-md-4 text-md-right">
+                 <div class="form-group">
+                   <label class="checkbox-inline">
+                     <input name="input-group-radio" value="checkbox-1" type="checkbox">Direct Flights Only
+                   </label>
+                 </div>
+               </div>
+               <div class="range offset-top-15">
+                 <div class="cell-xs">
+                   <div class="form-group">
+                     <label class="form-group-label">From</label>
+                     <!--Select 2-->
+                     <select data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                       <option>New Delhi (DEL)</option>
+                       <option value="2">Demo Item 1-1</option>
+                       <option value="3">Demo Item 1-2</option>
+                       <option value="4">Demo Item 1-2</option>
+                       <option value="5">Demo Item 2-1</option>
+                       <option value="6">Demo Item 2-2</option>
+                       <option value="7">Demo Item 2-3</option>
+                     </select>
+                   </div>
+                   <div class="form-group">
+                     <label class="checkbox-inline">
+                       <input name="input-group-radio" value="checkbox-1" type="checkbox">Add Nearby Airports
+                     </label>
+                   </div>
+                 </div>
+                 <div class="cell-xs offset-top-15 offset-xs-top-0">
+                   <div class="form-group">
+                     <label class="form-group-label">To</label>
+                     <!--Select 2-->
+                     <select data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                       <option>New York (JFK)</option>
+                       <option value="2">Demo Item 1-1</option>
+                       <option value="3">Demo Item 1-2</option>
+                       <option value="4">Demo Item 1-2</option>
+                       <option value="5">Demo Item 2-1</option>
+                       <option value="6">Demo Item 2-2</option>
+                       <option value="7">Demo Item 2-3</option>
+                     </select>
+                   </div>
+                   <div class="form-group">
+                     <label class="checkbox-inline">
+                       <input name="input-group-radio" value="checkbox-2" type="checkbox">Add Nearby Airports
+                     </label>
+                   </div>
+                 </div>
+                 <div class="cell-md-1-5 offset-top-10 offset-md-top-0">
+                   <div class="form-group">
+                     <label class="form-group-label">Cabin Class</label>
+                     <!--Select 2-->
+                     <select data-minimum-results-for-search="Infinity" class="form-control select-filter">
+                       <option>Economy</option>
+                       <option value="2">Demo Item 1-1</option>
+                       <option value="3">Demo Item 1-2</option>
+                       <option value="4">Demo Item 1-2</option>
+                       <option value="5">Demo Item 2-1</option>
+                       <option value="6">Demo Item 2-2</option>
+                       <option value="7">Demo Item 2-3</option>
+                     </select>
+                   </div>
+                 </div>
+               </div>
+               <div class="range offset-top-15">
+                 <div class="cell-xs">
+                   <div class="form-group">
+                     <label class="form-group-label">Departure</label>
+                     <input type="text" data-time-picker="date" data-constraints="@Required" name="departure" class="form-control">
+                   </div>
+                 </div>
+                 <div class="cell-xs offset-top-15 offset-xs-top-0">
+                   <div class="form-group">
+                     <label class="form-group-label">Return</label>
+                     <input type="text" data-time-picker="date" data-constraints="@Required" name="return" class="form-control">
+                   </div>
+                 </div>
+                 <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
+                   <div class="range">
+                     <div class="cell-xs-6">
+                       <div class="form-group">
+                         <label class="form-group-label">Adults (16+)</label>
+                         <input type="number" min="0" value="2" class="form-control">
+                       </div>
+                     </div>
+                     <div class="cell-xs-6 offset-top-15 offset-xs-top-0">
+                       <div class="form-group">
+                         <label class="form-group-label">Children</label>
+                         <input type="number" min="0" value="0" class="form-control">
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
+                   <button class="btn btn-primary btn-sm btn-naira btn-naira-up"><span class="icon fa-search"></span><span>Search Flight</span></button>
+                 </div>
+               </div>
+             </div>
+           </form>
+         </div>
+
+         </div>
+         </div>
+         </div>
+         </div>
+
+
+       </div>
+
+       </div>
